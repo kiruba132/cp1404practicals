@@ -4,6 +4,7 @@ If sales are under $1,000, the user gets a 10% bonus.
 If sales are $1,000 or over, the bonus is 15%.
 """
 
+# NOTE:  I didn't read the practice instructions properly. I thought we could choose two programs ourselves from prac 1 to refactor for functions. Its complete anyways.
 
 def main():
     get_and_calculate_sales()
