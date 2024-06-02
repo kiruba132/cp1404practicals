@@ -13,16 +13,6 @@ def main():
     def fahrenheit_to_celsius(fahrenheit):
         return (fahrenheit - 32) * 5 / 9
 
-
-def main():
-    # Function to convert Celsius to Fahrenheit
-    def celsius_to_fahrenheit(celsius):
-        return celsius * 9.0 / 5 + 32
-
-    # Function to convert Fahrenheit to Celsius
-    def fahrenheit_to_celsius(fahrenheit):
-        return (fahrenheit - 32) * 5 / 9
-
     # Display menu
     MENU = """C - Convert Celsius to Fahrenheit
 F - Convert Fahrenheit to Celsius
