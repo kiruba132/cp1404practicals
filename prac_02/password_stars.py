@@ -2,14 +2,12 @@ MINIMUM_LENGTH = 10
 
 
 def main():
-        password = get_password()
+    password = get_password()
+    print_asterisks(password)
 
 
-def print_asterisks():
+def print_asterisks(password):
     print('*' * len(password))
-
-
-print_asterisks()
 
 
 def get_password():
