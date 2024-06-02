@@ -4,38 +4,30 @@ Broken program to determine score status
 """
 # I searched online for help for this one, got stuck.
 
+
 import random
 
 
-# Main function
 def main():
-    # Function to determine score category
-    def determine_category(score):
-        if score < 0 or score > 100:
-            return "Invalid score"
-        elif score >= 90:
-            return "Excellent"
-        elif score >= 50:
-            return "Passable"
-        else:
-            return "Bad"
+    # Get a numeric score, display its status, and also display the status of a random score.
+    score = float(input("Enter score: "))
+    print(determine_status(score))
 
-    # Function to print score category
-    def print_score_category(score, category):
-        print(f"Your score of {score} is considered {category}")
+    # Generate a random score and display its status
+    random_score = random.uniform(0, 100)  # Generate a random score between 0 and 100
+    print(f"Random score: {random_score:.2f}, Status: {determine_status(random_score)}")
 
-    print("CP1404 - Practical\nScore Evaluation\n")
 
-    # Get user score
-    user_score = float(input("Enter score: "))
-    user_category = determine_category(user_score)
-    print_score_category(user_score, user_category)
-
-    # Generate random score
-    random_score = random.randint(0, 100)
-    random_category = determine_category(random_score)
-    print(f"\nRandomly generated score: {random_score}")
-    print_score_category(random_score, random_category)
+def determine_status(score):
+# Determine the status of a given score
+    if score < 0 or score > 100:
+        return "Invalid score"
+    elif score >= 90:
+        return "Excellent"
+    elif score >= 50:
+        return "Passable"
+    else:
+        return "Bad"
 
 
 main()

@@ -2,6 +2,8 @@
 CP1404 - Practical
 Shop Calculator
 """
+
+
 # NOTE:  I didn't read the practice instructions properly. I thought we could choose two programs ourselves from prac 1 to refactor for functions. Its complete anyways.
 
 def main():
