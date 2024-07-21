@@ -66,5 +66,16 @@ def load_projects(filename):
     return projects
 
 
+def save_projects(filename, projects):
+    """Save projects to a file."""
+    with open(filename, 'w', newline='') as file:
+        writer = csv.writer(file, delimiter='\t')
+        writer.writerow(["Name", "Start Date", "Priority", "Cost Estimate", "Completion"])
+        for project in projects:
+            writer.writerow([project.name, project.start_date.strftime("%d/%m/%Y"), project.priority, project.cost,
+                             project.completion])
+    print(f"Saved {len(projects)} projects to {filename}")
+
+
 if __name__ == "__main__":
     main()
