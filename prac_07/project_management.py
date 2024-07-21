@@ -2,6 +2,9 @@
 File: project_management.py
 This module contains the main program
 Time Estimate: 2 hours
+Actual Time: 2 hours
+This felt like an assignment, and I rushed it. I copied functions from Assignment 1 and changed them up as well to implement classes.
+
 """
 import csv
 from datetime import datetime
