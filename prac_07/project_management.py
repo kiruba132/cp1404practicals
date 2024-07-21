@@ -1,5 +1,58 @@
 """
-File: project.py
-This module contains the Project class and related methods.
+File: project_management.py
+This module contains the main program
 Time Estimate: 2 hours
 """
+import csv
+from datetime import datetime
+from project import Project
+
+MENU = """\nMenu:
+L - Load projects  
+S - Save projects  
+D - Display projects  
+F - Filter projects by date
+A - Add new project  
+U - Update project
+Q - Quit"""
+
+
+def main():
+    """Main function to run the project management program."""
+    filename = 'projects.txt'
+    projects = load_projects(filename)
+
+    print("Welcome to Pythonic Project Management")
+    print(f"Loaded {len(projects)} projects from {filename}")
+    print(MENU)
+
+    choice = input(">>> ").upper()
+
+    while choice != 'Q':
+        if choice == 'L':
+            filename = input("Filename: ")
+            projects = load_projects(filename)
+        elif choice == 'S':
+            filename = input("Filename: ")
+            save_projects(filename, projects)
+        elif choice == 'D':
+            display_projects(projects)
+        elif choice == 'F':
+            filter_projects_by_date(projects)
+        elif choice == 'A':
+            add_new_project(projects)
+        elif choice == 'U':
+            update_project(projects)
+        else:
+            print("Invalid menu choice")
+        print(MENU)
+        choice = input(">>> ").upper()
+
+    if input("Would you like to save to projects.txt? ").lower() in ['yes', 'y']:
+        save_projects('projects.txt', projects)
+
+    print("Thank you for using custom-built project management software.")
+
+
+if __name__ == "__main__":
+    main()
