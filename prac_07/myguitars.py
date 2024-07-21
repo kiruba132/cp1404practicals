@@ -1,21 +1,28 @@
 import csv
-from guitar import Guitar
+from guitar import Guitar  # Import the Guitar class from the guitar module
 
 
 def main():
-    """Read guitars from file, display them, and sort by year."""
-    guitars = load_guitars("guitars.csv")
-    display_guitars("All guitars:", guitars)
+    filename = 'guitars.csv'
+    guitars = read_guitars_from_file(filename)
 
-    guitars.sort()
-    display_guitars("\nGuitars sorted by year:", guitars)
+    print("All guitars:")
+    for guitar in guitars:
+        print(guitar)
 
     add_new_guitars(guitars)
-    save_guitars("guitars.csv", guitars)
+
+    guitars.sort()
+
+    print("\nGuitars sorted by year (oldest to newest):")
+    for guitar in guitars:
+        print(guitar)
+
+    write_guitars_to_file(filename, guitars)
 
 
-def load_guitars(filename):
-    """Load guitars from a CSV file."""
+def read_guitars_from_file(filename):
+    """Read guitars from a CSV file and return a list of Guitar objects."""
     guitars = []
     with open(filename, 'r') as file:
         reader = csv.reader(file)
@@ -25,26 +32,18 @@ def load_guitars(filename):
     return guitars
 
 
-def display_guitars(title, guitars):
-    """Display a list of guitars."""
-    print(title)
-    for guitar in guitars:
-        print(guitar)
-
-
 def add_new_guitars(guitars):
     """Add new guitars to the list."""
     print("\nAdd new guitars (leave name blank to finish):")
-    while True:
-        name = input("Name: ")
-        if not name:
-            break
-        year = int(input("Year: "))
-        cost = float(input("Cost: "))
+    name = input("Name: ")
+    while name:
+        year = int(input("Enter year: "))
+        cost = float(input("Enter cost: "))
         guitars.append(Guitar(name, year, cost))
+        name = input("Name: ")
 
 
-def save_guitars(filename, guitars):
+def write_guitars_to_file(filename, guitars):
     """Save guitars to a CSV file."""
     with open(filename, 'w', newline='') as file:
         writer = csv.writer(file)
