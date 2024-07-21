@@ -54,5 +54,17 @@ def main():
     print("Thank you for using custom-built project management software.")
 
 
+def load_projects(filename):
+    """Load projects from a file and return a list of Project objects."""
+    projects = []
+    with open(filename, 'r') as file:
+        reader = csv.reader(file, delimiter='\t')
+        next(reader)
+        for row in reader:
+            projects.append(Project(*row))
+    print(f"Loaded {len(projects)} projects from {filename}")
+    return projects
+
+
 if __name__ == "__main__":
     main()
