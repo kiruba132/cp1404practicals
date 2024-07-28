@@ -27,10 +27,7 @@ class MilesConverterApp(App):
         self.handle_calculate()
 
     def get_validated_miles(self):
-        """
-        get text input from text entry widget, convert to float
-        :return: 0 if error, float version of text if valid
-        """
+        """get text input from text entry widget, convert to float"""
         try:
             value = float(self.root.ids.input_miles.text)
             return value
