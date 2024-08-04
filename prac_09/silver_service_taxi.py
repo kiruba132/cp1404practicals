@@ -19,3 +19,4 @@ class SilverServiceTaxi(Taxi):
         """Return the price for the taxi trip, rounded to nearest 10 cents, including flagfall."""
         fare = super().get_fare() + self.flagfall
         return round(fare, 1)
+
